@@ -115,10 +115,6 @@ a.button {
 }
 
 
-.q {
-  display: none;
-}
-
 .question .qarea .direction {
   margin:2% 0 4% 0;
 }
@@ -164,4 +160,7 @@ a.button {
 }
 .final .button {
   margin-bottom: 20px;
+}
+.final .clue {
+  font-weight: bold;
 }

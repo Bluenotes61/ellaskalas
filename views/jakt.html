@@ -1,7 +1,16 @@
 {{#yield-scripts}}
   <script type='text/javascript' src='/js/jakt.js'></script>
-  <script type="text/javascript">var questions={{person}};</script>
 {{/yield-scripts}}
+
+<div class='pop start'>
+  <h1>Välkommen till Ellas skattjakt!</h1>
+  <h3>Svara på frågorna och klicka er vidare.<br />Ni kan inte komma vidare till nästa fråga förrän ni har svarat rätt.</h3>
+  <h3>Klicka på ert lagnamn för att börja</h3>
+  <div class='buttons'>
+    <a href='/jakt/?p=lag1' class='button'>Lag 1</a>
+    <a href='/jakt/?p=lag2' class='button'>Lag 2</a>
+  </div>
+</div>
 
 <div class='pop question'>
   <div class='qarea'>
@@ -31,7 +40,7 @@
     <h2>Ni klarade det!</h2>
     <div class='text2'>
       <div>Sista ledtråden finns <span class='clue'></span>.<br /><br />Samarbeta med det andra laget för att hitta skatten.</div>
-      <a class='button answerbtn'>Vi är klara</a>
+      <a class='button'>Avsluta</a>
     </div>
   </div>
 </div>

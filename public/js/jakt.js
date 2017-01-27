@@ -118,7 +118,7 @@ function Jakt() {
         i:"lag2_7.jpg"
       },
       { 
-        s:"Ta till höger på Rörläggarevägen.",
+        s:"Ta till höger på Plåtslagarevägen.",
         q:"Efternamn på dem som bor mittemot denna box?", 
         a:["Kinnander"],
         i:"lag2_8.jpg"
@@ -139,8 +139,7 @@ function Jakt() {
 
   function init() {
     $(".question .answerbtn").on("click", function(){
-    
-    $(".question").fadeOut(1000);
+      $(".question").fadeOut(1000);
       if (answerIsRight()) {
         currq++;
         if (isDone()) {
@@ -174,7 +173,13 @@ function Jakt() {
 
     $(".final .clue").text(lag.end);
     getQuestion();
-    $(".question").fadeIn(1000);
+    
+
+    setTimeout(function(){
+      $(".pop.start").slideDown(1000);
+    }, 5000);    
+
+//    $(".question").fadeIn(1000);
   }
 
   function getQuestion() {
@@ -185,10 +190,11 @@ function Jakt() {
   }
 
   function answerIsRight() {
+    return true;
     var answer = $(".question input.answer").val();
     var ok = false;
     for (var i=0; !ok && i < lag.qa[currq].a.length; i++)
-      ok = (answer == lag.qa[currq].a[i]);
+      ok = (answer.toLowerCase() == lag.qa[currq].a[i].toLowerCase());
     return ok;
   }
 
