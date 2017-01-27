@@ -1,0 +1,167 @@
+/****** General ******/
+
+body, td, input, textarea, select {
+  font-family:Helvetica, Arial, san-serif;
+  font-size: 20px;
+  line-height:120%;
+  margin:0;
+  padding:0;
+  color:#000;
+}
+
+a {
+  color: #ff0000;
+  text-decoration: none;
+  font-weight: bold;
+  outline:none;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+p {
+  margin:0 0 12px 0;
+}
+
+h1 {
+  margin:0;
+  font-weight: bold;
+  font-size: 250%;
+  line-height:120%;
+}
+h2 {
+  margin: 6% 0 0 0;
+  font-size: 200%;
+  line-height:120%;
+  font-weight: bold;
+}
+h3 {
+  margin:6% 0 0 0;
+  font-size:150%;
+  line-height:120%;
+  font-weight:bold;
+}
+h4 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 14px;
+  line-height:16px;
+}
+h5, h6 {
+  margin: 0;
+  font-size: 12px;
+  line-height:14px;
+  font-weight:bold;
+}
+
+
+/***** Common classes *****/
+
+.clearfloat {
+  clear:both;
+  margin-top:-1px;
+  height:1px;
+  overflow:hidden;
+}
+
+
+.maindiv {
+  width:100%;
+  height: 100%;
+}
+
+.background {
+  position: fixed;
+  background:url(/gfx/bg/bg1.jpg) no-repeat center center;
+  background-size: cover;
+  width:100%;
+  height: 100%;
+}
+
+div.buttons {
+  margin-top:2%;
+}
+a.button {
+  display: inline-block;
+  padding:10px 20px;
+  background: #3C6184;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.pop {
+  max-width: 1000px;
+  width:90%;
+  margin:2% auto;
+  left:0;
+  right: 0;
+  position:absolute;
+  background-color:rgba(201, 228, 252, 0.7);
+  border:solid 6px #000;
+  border-radius:10px;
+  padding:2%;
+  text-align: center;
+  display: none;  
+}
+
+
+.q {
+  display: none;
+}
+
+.question .qarea .direction {
+  margin:2% 0 4% 0;
+}
+.question .qarea .qimg {
+  max-height: 380px;
+  overflow: hidden;
+}
+.question .qarea .qimg img {
+  width: 100%;
+}
+.question .qarea .qtext {
+  margin:4% 0 4% 0;
+  font-size: 120%;
+}
+.question input {
+  width: 100%;
+  border: none;
+}
+.question .answerbtn {
+  margin-top:10px;
+}
+
+.final .text {
+}
+
+
+.alert {
+  width:400px;
+  position:absolute;
+  background-color:#fff;
+  border:solid 6px #ff0000;
+  display:none;
+  margin-left:50px;
+  margin-top:100px;
+  z-index:1;
+}
+.alert div {
+  margin:40px;
+  text-align:center;
+}
+
+#final {
+  background-color:#000;
+}
+
+#timer {
+  height:10px;
+  text-align:right;
+  font-size:26px;
+  font-weight:bold;
+  padding:20px 20px 0 0;
+}

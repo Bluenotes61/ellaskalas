@@ -1,0 +1,32 @@
+{{#yield-scripts}}
+  <script type='text/javascript' src='/js/jakt.js'></script>
+  <script type="text/javascript">var questions={{person}};</script>
+{{/yield-scripts}}
+
+<div class='pop question'>
+  <div class='qarea'>
+    <div class='direction'></div>
+    <div class='qimg'><img /></div>
+    <div class='qtext'></div>
+  </div>
+  <div><input type='text' class='answer' /></div>
+  <a class='button answerbtn'>Svara</a>
+</div>
+
+<div class="pop wrong">
+  <h2>Buuu!!<br />Det var fel!</h2>
+  <h3>Försök igen!</h3>
+</div>
+
+<div class="pop correct">
+  <h2>Bravo!<br />Det var rätt!</h2>
+  <h3>Nu kommer nästa fråga.</h3>
+</div>
+
+<div class="pop final">
+  <div class='text'>
+    <div class='text1'>Grattis! Ni klarade det!</div>
+  </div>
+</div>
+
+
