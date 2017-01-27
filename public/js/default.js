@@ -2,7 +2,7 @@ function Start() {
 
   function init() {
     setTimeout(function(){
-      $(".pop.start").addClass("active");
+      $(".pop.start").slideDown(1000);
     }, 5000);    
   }
 

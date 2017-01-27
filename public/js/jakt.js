@@ -8,7 +8,7 @@ function Jakt() {
         a:["640908"],
         i:"lag1_1.jpg"
       },
-      { 
+/*      { 
         s:"Sväng till vänster på Folkparksvägen.",
         q:"När ni ser dessa träd så finns bakom er rygg en skylt. Skriv in telefonnumret på skylten.", 
         a:["046 - 12 70 95", "046-12 70 95", "046-127095"],
@@ -62,14 +62,14 @@ function Jakt() {
         a:["613"],
         i:"lag1_10.jpg"
       },
-      { 
+*/      { 
         s:"Ta till vänster på Målarevägen.",
         q:"Vilket är andra ordet på skylten mittemot denna brevlåda?", 
         a:["genomfart"],
         i:"lag1_11.jpg"
       }
     ],
-    end: "Kolla i hallgarderoben!"
+    end: "i hallgarderoben"
   };
 
 
@@ -139,6 +139,7 @@ function Jakt() {
 
   function init() {
     $(".question .answerbtn").on("click", function(){
+    
     $(".question").fadeOut(1000);
       if (answerIsRight()) {
         currq++;
@@ -146,24 +147,32 @@ function Jakt() {
           showFinal();
         }
         else {
-          $(".correct").fadeIn(1000, function(){
-            getQuestion();
-            setTimeout(function(){
-              $(".correct").fadeOut(1000);
-              $(".question").fadeIn(1000);
-            }, 3000);
-          });
+          getQuestion();
+          $(".correct").fadeIn(1000);
         }
       }
       else {
-        $(".wrong").fadeIn(1000, function(){
-          setTimeout(function(){
-            $(".wrong").fadeOut(1000);
-            $(".question").fadeIn(1000);
-          }, 3000);
-        });
+        $(".wrong").fadeIn(1000);
       }
     });
+
+    $(".correct a.button").on("click", function(){
+      $(".correct").fadeOut(1000, function(){
+        $(".question").fadeIn(1000);
+      });
+    });
+    
+    $(".wrong a.button").on("click", function(){
+      $(".wrong").fadeOut(1000, function(){
+        $(".question").fadeIn(1000);
+      });
+    });
+
+    $(".final .button").on("click", function(){
+      $(".final").fadeOut(1000);
+    });
+
+    $(".final .clue").text(lag.end);
     getQuestion();
     $(".question").fadeIn(1000);
   }
@@ -172,23 +181,30 @@ function Jakt() {
     $(".question .qarea .direction").text(lag.qa[currq].s);
     $(".question .qarea .qimg img").attr("src", "/gfx/qimages/" + lag.qa[currq].i);
     $(".question .qarea .qtext").text(lag.qa[currq].q);
+    $(".question input.answer").val("");
   }
 
   function answerIsRight() {
-    return true;
+    var answer = $(".question input.answer").val();
+    var ok = false;
+    for (var i=0; !ok && i < lag.qa[currq].a.length; i++)
+      ok = (answer == lag.qa[currq].a[i]);
+    return ok;
   }
 
   function isDone() {
-    return true;
+    return currq == lag.qa.length;
   }
 
   function showFinal() {
     $(".background").css("background-image", "url(/gfx/hopp.gif)");
-    $(".final").fadeIn(1000);
+    setTimeout(function(){
+      $(".final").slideDown(1000);
+    }, 5000);
+    setTimeout(function(){
+      $(".final .text2").slideDown(1000);
+    }, 10000);
   }
-
-
-
 
 
   init();
