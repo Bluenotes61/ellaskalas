@@ -9,7 +9,7 @@ function Jakt() {
           a:["640908"],
           i:"lag1_1.jpg"
         },
-  /*      { 
+        { 
           s:"Sväng till vänster på Folkparksvägen.",
           q:"När ni ser dessa träd så finns bakom er rygg en skylt. Skriv in telefonnumret på skylten.", 
           a:["046 - 12 70 95", "046-12 70 95", "046-127095"],
@@ -63,7 +63,7 @@ function Jakt() {
           a:["613"],
           i:"lag1_10.jpg"
         },
-  */      { 
+        { 
           s:"Ta till vänster på Målarevägen.",
           q:"Vilket är andra ordet på skylten mittemot denna brevlåda?", 
           a:["genomfart"],
@@ -80,7 +80,7 @@ function Jakt() {
           a:["14"],
           i:"lag2_1.jpg"
         },
-  /*      { 
+        { 
           s:"När Glasmästarevägen är slut, ta till vänster på cykelvägen.",
           q:"Vilket är understa ordet på lappen på stolpen intill detta träd?", 
           a:["RECORDS"],
@@ -122,7 +122,7 @@ function Jakt() {
           a:["Kinnander"],
           i:"lag2_8.jpg"
         },
-  */      { 
+        { 
           s:"Ta till höger på Målarevägen.",
           q:"Vad är första ordet på skylten mittemot detta garage?", 
           a:["Grannar"],
@@ -184,8 +184,6 @@ function Jakt() {
     setTimeout(function(){
       $(".pop.start").slideDown(1000);
     }, 5000);    
-
-//    $(".question").fadeIn(1000);
   }
 
   function getQuestion() {
@@ -196,7 +194,6 @@ function Jakt() {
   }
 
   function answerIsRight() {
-    return true;
     var answer = $(".question input.answer").val();
     var ok = false;
     for (var i=0; !ok && i < lag.qa[currq].a.length; i++)
