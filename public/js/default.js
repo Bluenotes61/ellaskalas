@@ -5,7 +5,7 @@ function Jakt() {
       qa:[
         { 
           s:"Börja att gå västerut på Målarevägen.",
-          q:"Vilka siffror står på skylten till vänster om denna grind?", 
+          q:"Vilka siffror står på boxen intill?", 
           a:["640908"],
           i:"lag1_1.jpg"
         },
@@ -35,19 +35,19 @@ function Jakt() {
         },
         { 
           s:"Fortsätt på Maskinvägen.",
-          q:"Vad står mitt på brunnen i gatan intill det ni ser på bilden?", 
+          q:"Vad står mitt på gatubrunnen intill?", 
           a:["D400", "d400", "D 400", "d 400"],
           i:"lag1_6.jpg"
         },
         { 
           s:"Fortsätt på Maskinvägen.",
-          q:"Vad står på undre namnskylten på denna stolpe?", 
+          q:"Vad står på undre namnskylten på stolpen?", 
           a:["Palettskolan"],
           i:"lag1_7.jpg"
         },
         { 
           s:"Sväng in mot Palettskolan.",
-          q:"Vilket är sista ordet i texten på skylten som sitter intill denna skylt?", 
+          q:"Vilket är sista på skylten intill?", 
           a:["Målarstugan", "Målarstugan."],
           i:"lag1_8.jpg"
         },
@@ -68,21 +68,37 @@ function Jakt() {
           q:"Vilket är andra ordet på skylten mittemot denna brevlåda?", 
           a:["genomfart"],
           i:"lag1_11.jpg"
+        },
+        { 
+          s:"Fortsätt på Målarevägen.",
+          q:"Vad är första ordet på skylten mittemot detta garage?", 
+          a:["Grannar"],
+          i:"lag1_12.jpg"
+        },
+        { 
+          s:"Gå in på Målarevägen 29.",
+          q:"Vad är telefonnumret?", 
+          a:["0733-915506"],
+          i:"lag1_13.jpg"
         }
       ],
-      end: "i hallgarderoben"
+      end: {
+        s:"Gå in och hitta sista ledtråden på Ellas rum.",
+        q:"Samarbeta sedan med det andra laget för att hitta skatten.", 
+        i:"lag1_final.jpg"
+      }
     },
     lag2: {
       qa:[
         { 
           s:"Börja att rakt fram på Glasmästarevägen.",
-          q:"Vilket nummer har huset mitt emot denna brevlåda?", 
+          q:"Vilket nummer har huset mitt emot?", 
           a:["14"],
           i:"lag2_1.jpg"
         },
         { 
           s:"När Glasmästarevägen är slut, ta till vänster på cykelvägen.",
-          q:"Vilket är understa ordet på lappen på stolpen intill detta träd?", 
+          q:"Vilket är understa ordet på lappen på stolpen intill?", 
           a:["RECORDS"],
           i:"lag2_2.jpg"
         },
@@ -94,7 +110,7 @@ function Jakt() {
         },
         { 
           s:"Fortsätt på Folkparksvägen.",
-          q:"Vilket nummer har trappuppgången mittemot denna skylt?", 
+          q:"Vilket nummer har trappuppgången mittemot?", 
           a:["3C"],
           i:"lag2_4.jpg"
         },
@@ -106,30 +122,58 @@ function Jakt() {
         },
         { 
           s:"Ta till höger på van Dürens väg.",
-          q:"Skriv efternamnet på den som bor i lägenhet 331 i denna trappuppgång.", 
+          q:"Efternamnet på den som bor i lägenhet 331.", 
           a:["Bergström"],
           i:"lag2_6.jpg"
         },
         { 
           s:"Fortsätt på van Dürens väg.",
-          q:"Vilket nummer står på boxen mittemot denna skylt?", 
-          a:["640412"],
+          q:"Vad står under hålet?", 
+          a:["Metallförpackningar"],
           i:"lag2_7.jpg"
         },
         { 
-          s:"Ta till höger på Plåtslagarevägen.",
-          q:"Efternamn på dem som bor mittemot denna box?", 
-          a:["Kinnander"],
+          s:"Fortsätt på van Dürens väg.",
+          q:"Vad är numret på huset?", 
+          a:["43A"],
           i:"lag2_8.jpg"
         },
         { 
-          s:"Ta till höger på Målarevägen.",
-          q:"Vad är första ordet på skylten mittemot detta garage?", 
-          a:["Grannar"],
+          s:"Sväng till höger på Hårlemans väg.",
+          q:"Vad är telefonnumret?", 
+          a:["0738 - 725 721", "0738-725 721", "0738-725721"],
           i:"lag2_9.jpg"
+        },
+        { 
+          s:"Fortsätt på Hårlemans väg.",
+          q:"Vad står på gatubrunnen?", 
+          a:["FV"],
+          i:"lag2_10.jpg"
+        },
+        { 
+          s:"Sväng till höger på cykelvägen.",
+          q:"Vilket telefonnummer?", 
+          a:["0771-41 11 00", "0771-411100"],
+          i:"lag2_11.jpg"
+        },
+        { 
+          s:"Ta till vänster på Plåtslagarevägen.",
+          q:"Efternamn på dem som bor mittemot?", 
+          a:["Kinnander"],
+          i:"lag2_12.jpg"
+        },
+        { 
+          s:"Gå in på Målarevägen 29.",
+          q:"Vad heter denna?", 
+          a:["Weber"],
+          i:"lag2_13.jpg"
         }
       ],
-      end: "under kökssoffan"
+      end: {
+        s:"Gå in och hitta sista ledtråden i köket.",
+        q:"Samarbeta sedan med det andra laget för att hitta skatten.", 
+        i:"lag2_final.jpg"
+      }
     }
   };
 
@@ -149,20 +193,21 @@ function Jakt() {
     });
  
     $(".question .answerbtn").on("click", function(){
-      $(".question").fadeOut(1000);
-      if (answerIsRight()) {
-        currq++;
-        if (isDone()) {
-          showFinal();
+      $(".question").fadeOut(1000, function(){
+        if (answerIsRight()) {
+          currq++;
+          if (isDone()) {
+            showFinal();
+          }
+          else {
+            getQuestion();
+            $(".correct").fadeIn(1000);
+          }
         }
         else {
-          getQuestion();
-          $(".correct").fadeIn(1000);
+          $(".wrong").fadeIn(1000);
         }
-      }
-      else {
-        $(".wrong").fadeIn(1000);
-      }
+      });
     });
 
     $(".correct a.button").on("click", function(){
@@ -208,11 +253,11 @@ function Jakt() {
   function showFinal() {
     $(".background").css("background-image", "url(/gfx/hopp.gif)");
     setTimeout(function(){
+      $(".final .qarea .direction").text(lag.end.s);
+      $(".final .qarea .qimg img").attr("src", "/gfx/qimages/" + lag.end.i);
+      $(".final .qarea .qtext").text(lag.end.q);
       $(".final").slideDown(1000);
     }, 5000);
-    setTimeout(function(){
-      $(".final .text2").slideDown(1000);
-    }, 10000);
   }
 
 

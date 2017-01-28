@@ -152,15 +152,21 @@ a.button {
 .final {
   display: none;
 }
-.final .text2 {
-  display: none;
-}
-.final .text2 div {
-  margin:20px 0 40px 0;
-}
 .final .button {
   margin-bottom: 20px;
 }
-.final .clue {
-  font-weight: bold;
+
+.final .qarea .direction {
+  margin:2% 0 4% 0;
+}
+.final .qarea .qimg {
+  max-height: 340px;
+  overflow: hidden;
+}
+.final .qarea .qimg img {
+  width: 100%;
+}
+.final .qarea .qtext {
+  margin:4% 0 4% 0;
+  font-size: 120%;
 }
