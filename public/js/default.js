@@ -182,6 +182,10 @@ function Jakt() {
   var lag;
 
   function init() {
+    window.onbeforeunload = function() {
+      return "Vill du verkligen ladda om sidan?";
+    }
+
     $(".pop.start a.button").on("click", function(){
       var lagid = $(this).data("lag");
       lag = lagen[lagid];
