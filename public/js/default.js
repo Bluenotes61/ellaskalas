@@ -185,6 +185,9 @@ function Jakt() {
     window.onbeforeunload = function() {
       return "Vill du verkligen ladda om sidan?";
     }
+    document.unload = function() {
+      return "Vill du verkligen ladda om sidan?";
+    }
 
     $(".pop.start a.button").on("click", function(){
       var lagid = $(this).data("lag");
